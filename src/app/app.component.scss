@@ -1,0 +1,128 @@
+$px: 200px;
+
+@mixin WinnerSpan {
+    font-family: cursive;
+    font-weight: bolder;
+    color: darkgreen;
+    font-size: 25px;
+    position: absolute;
+    top: 9%;
+    left: 30%;
+}
+
+@mixin buttonStyle {
+    font-family: cursive;
+    color: darkgreen;
+    font-weight: bolder;
+    font-size: 21px;
+    letter-spacing: 1px;
+    height: 4%;
+    border: none;
+}
+
+.flex-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+    .playersbox {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        top: 19.5%;
+        left: 0%;
+        width: 16%;
+        height: 13%;
+        padding: 15px;
+        background-color: #d1d1d1;
+        font-family: cursive;
+        font-size: 30px;
+        color: whitesmoke;
+    }
+
+    span {
+        .player1winner {
+            @include WinnerSpan();
+            color: darkgreen;
+        }
+
+        .player2winner {
+            @include WinnerSpan();
+            color: blue;
+        }
+
+        .nowinner {
+            @include WinnerSpan();
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, $px));
+
+        .box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: $px;
+            height: $px;
+            border: 1px solid rgb(190, 190, 190);
+            font-size: 100px;
+            font-family: cursive;
+        }
+    }
+
+    button {
+        width: 31%;
+        margin-top: 20px;
+        @include buttonStyle();
+        height: 6%;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: rgb(219, 219, 219);
+    }
+}
+
+.startgamebox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    font-family: cursive;
+    color: green;
+
+    .player1box,
+    .player2box {
+        width: fit-content;
+        margin-bottom: 20px;
+
+        input {
+            width: 170px;
+            font-family: cursive;
+            height: 20px;
+            margin-left: 10px;
+            border: 1px solid silver;
+        }
+
+        input:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        @include buttonStyle();
+        width: 18%;
+    }
+
+    button:enabled:hover {
+        cursor: pointer;
+        background-color: rgb(219, 219, 219);
+    }
+}
