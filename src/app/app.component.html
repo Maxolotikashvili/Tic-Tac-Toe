@@ -16,7 +16,8 @@
     <div class="box" *ngFor="let item of gridArray" [ngStyle]="choiceList.indexOf(item) % 2 !== 1 ? shapeXColor : shapeOColor" (click)="handlePlayerChoice(item)">{{item.value}}</div>
   </div>
 
-  <button *ngIf="gameHasEnded" (click)="restartGame()">Restart</button>
+  <button *ngIf="gameHasEnded" (click)="restartGame('restart')">Restart</button>
+  <button *ngIf="gameHasEnded" (click)="restartGame('changeNames')">Change Player Names</button>
 </div>
 
 <div class="startgamebox" *ngIf="!gameIsStarted">

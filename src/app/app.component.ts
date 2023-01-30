@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface gridArrayType {
+interface gridArrayType {
   id: string,
   value: string,
 }
@@ -16,11 +16,11 @@ export class AppComponent implements OnInit {
   idList: string[] = 'ABCDEFGHI'.split('');
   clickCount: number = 0;
 
-  shapeXColor: {color: string} = {
+  shapeXColor: { color: string } = {
     color: 'green'
   }
 
-  shapeOColor: {color: string} = {
+  shapeOColor: { color: string } = {
     color: 'blue'
   }
 
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   player1IsWinner: boolean = false;
   player2IsWinner: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
     this.fillGridArray();
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
 
   fillGridArray() {
     for (let x = 0; x < 9; x++) {
-      this.gridArray.push({ id: this.idList[x], value: ''});
+      this.gridArray.push({ id: this.idList[x], value: '' });
     }
   }
 
@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
         this.gridArray[this.gridArray.indexOf(playerChoice)].value = 'O';
         this.checkWinner(playerChoice);
       }
-  }
+    }
   }
 
   checkWinner(playerChoice: gridArrayType) {
@@ -109,7 +109,19 @@ export class AppComponent implements OnInit {
     });
   }
 
-  restartGame() {
-    location.reload();
+  restartGame(restartMode: string) {
+    if (restartMode === 'restart') {
+      for (let item of this.gridArray) {
+        item.value = '';
+      }
+      this.choiceList.splice(0, this.choiceList.length);
+      
+      this.gameHasEnded = false;
+      this.player1IsWinner = false;
+      this.player2IsWinner = false;
+      this.clickCount = 0;
+    } else if (restartMode === 'changeNames') {
+      location.reload();
+    }
   }
 }

@@ -1,19 +1,19 @@
-$px: 200px;
+$px: 10vw;
 
 @mixin WinnerSpan {
     font-family: cursive;
     font-weight: bolder;
     color: darkgreen;
-    font-size: 25px;
+    font-size: 1.6vw;
 }
 
 @mixin buttonStyle {
     font-family: cursive;
     color: darkgreen;
     font-weight: bolder;
-    font-size: 21px;
+    font-size: 1.6vw;
     letter-spacing: 1px;
-    height: 4%;
+    height: 2.5vw;
     border: none;
 }
 
@@ -32,13 +32,13 @@ $px: 200px;
         flex-direction: column;
         top: 19.5%;
         left: 0%;
-        width: 16%;
-        height: 13%;
+        width: fit-content;
         padding: 15px;
         background-color: #d1d1d1;
         font-family: cursive;
-        font-size: 30px;
+        font-size: 1.6vw;
         color: whitesmoke;
+        z-index: 2
     }
 
     span {
@@ -60,6 +60,8 @@ $px: 200px;
     .container {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, $px));
+        margin-top: 10px;
+        z-index: 100;
 
         .box {
             display: flex;
@@ -68,7 +70,7 @@ $px: 200px;
             width: $px;
             height: $px;
             border: 1px solid rgb(190, 190, 190);
-            font-size: 100px;
+            font-size: 6vw;
             font-family: cursive;
         }
     }
