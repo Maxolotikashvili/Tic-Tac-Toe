@@ -1,0 +1,99 @@
+@import "/src/app/default.styles.scss";
+
+.wrapper {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 1vw;
+    background-color: $primary-color;
+
+    h1 {
+        @include default-heading-style();
+        font-size: 4vw;
+    }
+
+    h2 {
+        @include default-heading-style();
+        margin-bottom: 5vh;
+        height: 26px;
+    }
+
+    .divider {
+        margin: 0 auto 10vh auto;
+        width: 10%;
+        height: 4px;
+        background-color: $secondary;
+        border-radius: 30px;
+    }
+
+    .board {
+        display: grid;
+        background-color: $secondary;
+        grid-template-columns: repeat(3, minmax(0, $tile-size));
+        grid-gap: 2px;
+        margin-bottom: 3vh;
+        transition: all 1s ease;
+
+        .tile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: $tile-size;
+            border-radius: 0;
+            background-color: $primary-color;
+            color: $white;
+            text-shadow: $secondary 1px 0 10px;
+            font-family: $font-family;
+            font-weight: 800;
+            font-size: $font-size;
+            transition: all 0.4s ease;
+        }
+
+        .tile:hover {
+            background-color: $primary-for-hover;
+        }
+
+        .winning-tiles,
+        .winning-tiles:hover {
+            transition: all 1s ease;
+            background-color: $secondary;
+        }
+    }
+
+    .restart-button-wrapper {
+        width: 28%;
+        height: 11vh;
+
+        button {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid $secondary;
+            color: $secondary;
+            font-family: $font-family;
+            font-size: 1.2vw;
+            transition: all .6s ease;
+        }
+
+        button:nth-child(1) {
+            border-bottom: none;
+        }
+
+        button:nth-child(2) {
+            border-top: none;
+        }
+        
+        button:hover {
+            box-shadow: $box-shadow;
+        }
+
+        .scale-0 {
+            transform: scaleX(0);
+        }
+
+        .scale-100 {
+            transform: scaleX(1);
+        }
+     }
+}

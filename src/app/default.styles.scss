@@ -1,0 +1,21 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@500&display=swap');
+
+// Parameters
+$tile-size: 8vw;
+$font-size: 3vw;
+$font-family: 'Geologica', sans-serif;
+
+// Colors
+$primary-color: #212845;
+$secondary: #216af5;
+$optional: #f8d420;
+$white: #ffffff;
+$primary-for-hover: #273155; 
+$box-shadow: inset 36vw 0px 1px black;
+
+@mixin default-heading-style {
+    font-family: $font-family;
+    color: $white;
+}

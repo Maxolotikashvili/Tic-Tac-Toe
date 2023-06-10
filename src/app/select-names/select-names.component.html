@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <mat-form-field>
+        <mat-label>First Player Name</mat-label>
+        <input type="text" [(ngModel)]="player1Name" matInput>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Second Player Name</mat-label>
+        <input type="text" [(ngModel)]="player2Name" matInput>
+    </mat-form-field>
+
+    <button mat-button [disabled]="validate()" type="submit" (click)="sendData()">Start</button>
+</div>
