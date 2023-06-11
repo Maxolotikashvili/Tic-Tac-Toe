@@ -32,12 +32,6 @@ body {
     }
 }
 
-@media only screen and (max-width: 600px) {
-    html {
-        font-size: 7px;
-    }
-}
-
 @media only screen and (max-width: 500px) {
     .restart-buttons-wrapper {
         flex-flow: row !important;
