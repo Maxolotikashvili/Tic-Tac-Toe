@@ -1,10 +1,19 @@
 @import "/src/app/default.styles.scss";
 
 .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 100%;
     background-color: $primary-color;
 
@@ -30,17 +39,27 @@
 
     .container-wrapper {
         .board {
+            display: -ms-grid;
             display: grid;
             background-color: $secondary;
+            -ms-grid-columns: minmax(0, $tile-size) 2px minmax(0, $tile-size) 2px minmax(0, $tile-size);
             grid-template-columns: repeat(3, minmax(0, $tile-size));
             grid-gap: 2px;
             margin-bottom: 4rem;
+            -webkit-transition: all 1s ease;
+            -o-transition: all 1s ease;
             transition: all 1s ease;
 
             .tile {
+                display: -webkit-box;
+                display: -ms-flexbox;
                 display: flex;
-                justify-content: center;
-                align-items: center;
+                -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                        justify-content: center;
+                -webkit-box-align: center;
+                    -ms-flex-align: center;
+                        align-items: center;
                 height: $tile-size;
                 border-radius: 0;
                 background-color: $primary-color;
@@ -49,6 +68,8 @@
                 font-family: $font-family;
                 font-weight: 800;
                 font-size: $font-size;
+                -webkit-transition: all 0.4s ease;
+                -o-transition: all 0.4s ease;
                 transition: all 0.4s ease;
             }
 
@@ -58,137 +79,62 @@
 
             .winning-tiles,
             .winning-tiles:hover {
+                -webkit-transition: all 1s ease;
+                -o-transition: all 1s ease;
                 transition: all 1s ease;
                 background-color: $secondary;
             }
         }
 
-        .restart-button,
-        .change-names-button {
-            width: 100%;
-            border-radius: 0;
-            border: 1px solid $secondary;
-            color: $secondary;
-            font-family: $font-family;
-            font-size: 1.8rem;
-            transition: all 0.6s ease;
-        }
+        .restart-buttons-wrapper {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+                -ms-flex-flow: column;
+                    flex-flow: column;
 
-        .restart-button {
-            border-bottom: none;
-        }
-
-        .change-names-button {
-            border-top: none;
-        }
-
-        .restart-button:hover,
-        .change-names-button:hover {
-            box-shadow: $box-shadow;
-        }
-
-        .scale-0 {
-            transform: scaleX(0);
-        }
-
-        .scale-100 {
-            transform: scaleX(1);
-        }
-    }
-}
-
-@media only screen and (min-width: 800px), (min-height: 1000px) {
-    .wrapper {
-        h1 {
-            font-size: 5rem;
-        }
-
-        h2 {
-            font-size: 2.6rem;
-        }
-
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, 200px));
-
-                .tile {
-                    height: 200px;
-                    font-size: 8rem;
-                }
+            .restart-button,
+            .change-names-button {
+                width: 100%;
+                padding: 1rem 0;
+                border-radius: 0;
+                background-color: transparent;
+                border: 1px solid $secondary;
+                color: $secondary;
+                font-family: $font-family;
+                font-size: 1.8rem;
+                -webkit-transition: all 0.6s ease;
+                -o-transition: all 0.6s ease;
+                transition: all 0.6s ease;
+                cursor: pointer;
             }
-        }
-    }
-}
 
-@media only screen and (min-width: 1024px), (min-height: 600px)  {
-    .wrapper {
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, 100px));
-
-                .tile {
-                    height: 100px;
-                }
+            .restart-button {
+                border-bottom: none;
             }
-        }
-    }
-}
 
-// Tablets
-@media only screen and (min-width: 1280px), (min-height: 800px) {
-    .wrapper {
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, 160px));
-    
-                .tile {
-                    height: 160px;
-                }
+            .change-names-button {
+                border-top: none;
             }
-        }
-    }
-}
 
-// Mobile Resolutions
-@media only screen and (max-width: 600px) {
-    .wrapper {
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, 100px));
-
-                .tile {
-                    height: 100px;
-                }
+            .restart-button:hover,
+            .change-names-button:hover {
+                -webkit-box-shadow: $box-shadow;
+                        box-shadow: $box-shadow;
             }
-        }
-    }
-}
 
-// Galaxy Fold
-@media only screen and (max-width: 280px) {
-    .wrapper {
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, 88px));
-
-                .tile {
-                    height: 88px;
-                }
+            .scale-0 {
+                -webkit-transform: scaleX(0);
+                    -ms-transform: scaleX(0);
+                        transform: scaleX(0);
             }
-        }
-    }
-}
 
-@media only screen and (max-width: 1366px) {
-    .wrapper {
-        .container-wrapper {
-            .board {
-                grid-template-columns: repeat(3, minmax(0, $tile-size)); 
-
-                .tile {
-                    height: $tile-size;
-                    font-size: $font-size;
-                }
+            .scale-100 {
+                -webkit-transform: scaleX(1);
+                    -ms-transform: scaleX(1);
+                        transform: scaleX(1);
             }
         }
     }
