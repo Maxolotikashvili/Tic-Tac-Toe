@@ -1,8 +1,13 @@
 @import "../default.styles.scss";
 
 .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
 
     mat-form-field {
         width: 30rem;
@@ -26,11 +31,14 @@
         font-size: 1.6rem;
         border-radius: 0;
         border: 1px solid $secondary;
+        -webkit-transition: all .6s ease;
+        -o-transition: all .6s ease;
         transition: all .6s ease;
     }
     
     button:hover {
-        box-shadow: $box-shadow;
+        -webkit-box-shadow: $box-shadow;
+                box-shadow: $box-shadow;
     }
 }
 
