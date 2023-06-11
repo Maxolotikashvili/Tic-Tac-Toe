@@ -6,85 +6,84 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    padding: 1vw;
     background-color: $primary-color;
 
     h1 {
         @include default-heading-style();
-        font-size: 4vw;
+        font-size: 4.6rem;
     }
 
     h2 {
         @include default-heading-style();
-        margin-bottom: 5vh;
+        font-size: 2rem;
+        margin-bottom: 2rem;
         height: 26px;
     }
 
     .divider {
-        margin: 0 auto 10vh auto;
+        margin: 0 auto 4rem auto;
         width: 10%;
         height: 4px;
         background-color: $secondary;
         border-radius: 30px;
     }
 
-    .board {
-        display: grid;
-        background-color: $secondary;
-        grid-template-columns: repeat(3, minmax(0, $tile-size));
-        grid-gap: 2px;
-        margin-bottom: 3vh;
-        transition: all 1s ease;
-
-        .tile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: $tile-size;
-            border-radius: 0;
-            background-color: $primary-color;
-            color: $white;
-            text-shadow: $secondary 1px 0 10px;
-            font-family: $font-family;
-            font-weight: 800;
-            font-size: $font-size;
-            transition: all 0.4s ease;
-        }
-
-        .tile:hover {
-            background-color: $primary-for-hover;
-        }
-
-        .winning-tiles,
-        .winning-tiles:hover {
-            transition: all 1s ease;
+    .container-wrapper {
+        .board {
+            display: grid;
             background-color: $secondary;
+            grid-template-columns: repeat(3, minmax(0, $tile-size));
+            grid-gap: 2px;
+            margin-bottom: 4rem;
+            transition: all 1s ease;
+
+            .tile {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: $tile-size;
+                border-radius: 0;
+                background-color: $primary-color;
+                color: $white;
+                text-shadow: $secondary 1px 0 10px;
+                font-family: $font-family;
+                font-weight: 800;
+                font-size: $font-size;
+                transition: all 0.4s ease;
+            }
+
+            .tile:hover {
+                background-color: $primary-for-hover;
+            }
+
+            .winning-tiles,
+            .winning-tiles:hover {
+                transition: all 1s ease;
+                background-color: $secondary;
+            }
         }
-    }
 
-    .restart-button-wrapper {
-        width: 28%;
-        height: 11vh;
-
-        button {
+        .restart-button,
+        .change-names-button {
             width: 100%;
             border-radius: 0;
             border: 1px solid $secondary;
             color: $secondary;
             font-family: $font-family;
-            font-size: 1.2vw;
-            transition: all .6s ease;
+            font-size: 1.8rem;
+            transition: all 0.6s ease;
         }
 
-        button:nth-child(1) {
+        .restart-button {
             border-bottom: none;
         }
 
-        button:nth-child(2) {
+        .change-names-button {
             border-top: none;
         }
-        
-        button:hover {
+
+        .restart-button:hover,
+        .change-names-button:hover {
             box-shadow: $box-shadow;
         }
 
@@ -95,5 +94,102 @@
         .scale-100 {
             transform: scaleX(1);
         }
-     }
+    }
+}
+
+@media only screen and (min-width: 800px), (min-height: 1000px) {
+    .wrapper {
+        h1 {
+            font-size: 5rem;
+        }
+
+        h2 {
+            font-size: 2.6rem;
+        }
+
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, 200px));
+
+                .tile {
+                    height: 200px;
+                    font-size: 8rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px), (min-height: 600px)  {
+    .wrapper {
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, 100px));
+
+                .tile {
+                    height: 100px;
+                }
+            }
+        }
+    }
+}
+
+// Tablets
+@media only screen and (min-width: 1280px), (min-height: 800px) {
+    .wrapper {
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, 160px));
+    
+                .tile {
+                    height: 160px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile Resolutions
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, 100px));
+
+                .tile {
+                    height: 100px;
+                }
+            }
+        }
+    }
+}
+
+// Galaxy Fold
+@media only screen and (max-width: 280px) {
+    .wrapper {
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, 88px));
+
+                .tile {
+                    height: 88px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1366px) {
+    .wrapper {
+        .container-wrapper {
+            .board {
+                grid-template-columns: repeat(3, minmax(0, $tile-size)); 
+
+                .tile {
+                    height: $tile-size;
+                    font-size: $font-size;
+                }
+            }
+        }
+    }
 }

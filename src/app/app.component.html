@@ -3,26 +3,24 @@
     <h1>Tic Tac Toe</h1>
     <div class="divider"></div>
 
-    <ng-container *ngIf="isGameStarted">
-    <h2>
-        <span *ngIf="!isGameEnded">
-            <span *ngIf="clickCount % 2 == 0 || clickCount === 0">{{player1Name}}'s Turn ( X )</span>
-            <span *ngIf="clickCount % 2 == 1">{{player2Name}}'s Turn ( O )</span>
-        </span>
-        <span *ngIf="isPlayer1Winner">{{player1Name}} {{'is a winner' | titlecase}}</span>
-        <span *ngIf="isPlayer2Winner">{{player2Name}} {{'is a winner' | titlecase}}</span>
-        <span *ngIf="isGameEnded && isPlayer1Winner === false && isPlayer2Winner === false">Game Has Ended In Draw</span>
-    </h2>
+    <div class="container-wrapper" *ngIf="isGameStarted">
+        <h2>
+            <span *ngIf="!isGameEnded">
+                <span *ngIf="clickCount % 2 == 0 || clickCount === 0">{{player1Name}}'s Turn ( X )</span>
+                <span *ngIf="clickCount % 2 == 1">{{player2Name}}'s Turn ( O )</span>
+            </span>
+            <span *ngIf="isPlayer1Winner">{{player1Name}} {{'is a winner' | titlecase}}</span>
+            <span *ngIf="isPlayer2Winner">{{player2Name}} {{'is a winner' | titlecase}}</span>
+            <span *ngIf="isGameEnded && isPlayer1Winner === false && isPlayer2Winner === false">Game Has Ended In Draw</span>
+        </h2>
 
-    <div class="board" [ngStyle]="{'backgroundColor': isGameEnded ? '#212845': ''}">
-        <button mat-button [disabled]="isGameEnded" class="tile" *ngFor="let tile of tileArray" (click)="handleClick(tile)" [ngClass]="{'winning-tiles': winningTilesForStyling.includes(tile.id)}">{{tile.value}}</button>
-    </div>
+        <div class="board" [ngStyle]="{'backgroundColor': isGameEnded ? '#212845': ''}">
+            <button mat-button [disabled]="isGameEnded" class="tile" *ngFor="let tile of tileArray" (click)="handleClick(tile)" [ngClass]="{'winning-tiles': winningTilesForStyling.includes(tile.id)}">{{tile.value}}</button>
+        </div>
 
-    <div class="restart-button-wrapper">
-        <button mat-button [ngClass]="{'scale-0': !isGameEnded, 'scale-100': isGameEnded}" (click)="restartGame('restart')">Restart</button>
-        <button mat-button [ngClass]="{'scale-0': !isGameEnded, 'scale-100': isGameEnded}" (click)="restartGame('change')">Change Names</button>
+        <button mat-button class="restart-button" [ngClass]="{'scale-0': !isGameEnded, 'scale-100': isGameEnded}" (click)="restartGame('restart')">Restart</button>
+        <button mat-button class="change-names-button" [ngClass]="{'scale-0': !isGameEnded, 'scale-100': isGameEnded}" (click)="restartGame('change')">Change Names</button>
     </div>
-    </ng-container>
 
     <app-select-names (emitData)="receiveDataFromChild($event)" *ngIf="!isGameStarted"></app-select-names>
 </div>

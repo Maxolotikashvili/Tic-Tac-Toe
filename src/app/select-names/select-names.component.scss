@@ -5,17 +5,17 @@
     flex-flow: column;
 
     mat-form-field {
-        width: 30vw;
+        width: 30rem;
         
         mat-label {
             font-family: $font-family;
-            font-size: 1.4vw;
+            font-size: 1.4rem;
             color: $white;
         }
     
         input {
             font-family: $font-family;
-            font-size: 1.4vw;
+            font-size: 1.4rem;
             color: $white;
         }
     }
@@ -23,7 +23,7 @@
     button {
         color: $secondary;
         font-family: $font-family;
-        font-size: 1.2vw;
+        font-size: 1.6rem;
         border-radius: 0;
         border: 1px solid $secondary;
         transition: all .6s ease;
@@ -31,5 +31,42 @@
     
     button:hover {
         box-shadow: $box-shadow;
+    }
+}
+
+@media only screen and (min-width: 800px), (min-height: 1000px) {
+    .wrapper {
+        mat-form-field {
+            width: 50rem;
+
+            mat-label {
+                font-size: 2.2rem;
+            }
+
+            input {
+                font-size: 2.2rem;
+            }
+        }
+
+        button {
+            padding: 2.4rem 0;
+            font-size: 2.6rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 820px), (min-height: 1180px) {
+    .wrapper {
+        mat-form-field {
+            width: 60rem;
+        }       
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .wrapper {
+        mat-form-field {
+            width: 22rem;
+        }
     }
 }
